@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    width: 320px; margin: 0; padding: 14px 16px 16px;
+    font: 13px/1.6 -apple-system, "PingFang SC", "Hiragino Sans GB", sans-serif;
+    background: #16181d; color: #e6e8ec;
+  }
+  h1 { font-size: 15px; margin: 0 0 2px; font-weight: 600; letter-spacing: .3px; }
+  .sub { color: #7a8290; font-size: 11px; margin-bottom: 12px; }
+  .card {
+    background: #1e2128; border: 1px solid #2a2f38; border-radius: 8px;
+    padding: 10px 12px; margin-bottom: 10px;
+  }
+  .site { font-size: 12px; color: #9aa3b2; word-break: break-all; }
+  .site b { color: #e6e8ec; font-weight: 600; }
+  #verdict { margin-top: 6px; font-size: 13px; font-weight: 600; color: #f0b429; }
+  #verdict.ok { color: #34d399; }
+  button {
+    width: 100%; padding: 9px 10px; margin-top: 8px; cursor: pointer;
+    background: #2a2f38; color: #e6e8ec; border: 1px solid #3a4150;
+    border-radius: 7px; font-size: 13px; font-family: inherit;
+    transition: background .15s, border-color .15s;
+  }
+  button:hover { background: #333a45; border-color: #4a5261; }
+  button.primary { background: #1f6f4f; border-color: #2a8a63; font-weight: 600; }
+  button.primary:hover { background: #268a61; }
+  #result { margin-top: 8px; font-size: 12px; color: #34d399; min-height: 18px; }
+  .tip {
+    margin-top: 10px; padding-top: 10px; border-top: 1px solid #2a2f38;
+    font-size: 11px; color: #6f7787; line-height: 1.7;
+  }
+  kbd {
+    background: #2a2f38; border: 1px solid #3a4150; border-bottom-width: 2px;
+    border-radius: 4px; padding: 0 5px; font-size: 10px; font-family: inherit;
+  }
+</style>
+</head>
+<body>
+  <h1>网课挂机助手</h1>
+  <div class="sub">v2.0 · 自动识别课件页</div>
+
+  <div class="card">
+    <div class="site">当前页面：<b id="site">读取中…</b></div>
+    <div id="verdict">正在判断…</div>
+  </div>
+
+  <button class="primary" id="force">在本页强制启用</button>
+  <button id="reload">重新加载本页</button>
+  <div id="result"></div>
+
+  <div class="tip">
+    启用成功后，页面<b>右下角</b>会出现深色控制面板。<br>
+    手动快捷键：<kbd>⌥</kbd>+<kbd>⇧</kbd>+<kbd>G</kbd><br>
+    面板里点「诊断 → 复制报告」可以导出本页的播放器结构。
+  </div>
+
+<script src="popup.js"></script>
+</body>
+</html>

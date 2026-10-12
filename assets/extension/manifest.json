@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "网课挂机助手",
+  "version": "2.0.0",
+  "description": "自动识别网课/继续教育课件页：防切页暂停、自动续播、自动处理挂机确认弹窗、播完自动下一节。非课件页完全不干扰。",
+  "minimum_chrome_version": "111",
+  "icons": {
+    "16": "icon16.png",
+    "32": "icon32.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "permissions": ["scripting"],
+  "host_permissions": ["<all_urls>"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "网课挂机助手"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["gate.js", "content.js"],
+      "run_at": "document_start",
+      "all_frames": true,
+      "world": "MAIN",
+      "match_about_blank": true,
+      "match_origin_as_fallback": true
+    }
+  ]
+}
